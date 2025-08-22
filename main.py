@@ -188,7 +188,7 @@ class CVBuilderAgent:
             
             output = f"Found {len(results)} profile(s):\n"
             for profile in results:
-                output += f"- {profile.name} ({profile.profession})\n"
+                output += f"f{self.get_profile_summary(profile.name)}\n"
             return output
         
         self.tools = [
@@ -315,11 +315,6 @@ Be professional, helpful, and provide clear, actionable information to help empl
         summary += "\n🎓 Education:\n"
         for edu in profile.education:
             summary += f"   • {edu['degree']} - {edu['institution']} ({edu['year']})\n"
-        
-        if profile.achievements:
-            summary += f"\n🏆 Achievements:\n"
-            for achievement in profile.achievements:
-                summary += f"   • {achievement}\n"
         
         return summary
 
